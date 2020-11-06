@@ -28,5 +28,5 @@ $.ajax(settings).done(function (response) {
         if (city.name === county) {
             console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
         }
-    })
+    });
 });
