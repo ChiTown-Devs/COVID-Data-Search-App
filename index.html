@@ -3,35 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Compressed CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-   
-<title>Covid-19-Datasearch</title>
- 
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.min.js"></script>
+    <title>Covid-19 Data Search</title>
 </head>
-<body>
-    <div class="top-bar">
-        <div class="top-bar-left">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Covid-19-Datasearch</li>
-            <li>
-              <a href="#">One</a>
-             
-            </li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul>
-        </div>
-        <div class="top-bar-right">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-      </div>
-      <div data-interchange="[assets/map.jpg/interchange/small.jpg, small], [assets/map.jpg/interchange/medium.jpg, medium], [assets/map.jpg/interchange/large.jpg, large]"></div>
 
+
+<header class="subnav-hero-section">
+    <h1 class="subnav-hero-headline">Covid-19 Data Search</h1>
+    <ul class="subnav-hero-subnav">
+        <button id="currentLocation">Current Location</button>
+        <input type="searchCity"><button id="searchCity">Search City</button>
+        <input type="searchCounty"><button id="searchCounty">Search County</button> 
+    </ul>
+</header>
+
+
+      
+    
+    <script src="script.js"></script>
 </body>
 </html>
