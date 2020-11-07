@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.min.js"></script>
@@ -13,72 +14,76 @@
 
     <title>Covid-19 Data Search</title>
 </head>
-
-
 <header class="subnav-hero-section">
-    <h1 class="subnav-hero-headline">Covid-19 Data Search</h1>
-    <ul class="subnav-hero-subnav">
-        <button id="currentLocation">Current Location</button>
-        <input type="text"> <button id="searchCity">Search City</button>
-        <input type="text"><button id="searchCounty">Search County</button>
-        <label for="states"></label>
-        <select name="states" id="states">
-            <option value="alabama">Alabama</option>
-            <option value="alaska">Alaska</option>
-            <option value="arizona">Arizona</option>
-            <option value="arkansas">Arkansas</option>
-            <option value="california">California</option>
-            <option value="colorado">Colorado</option>
-            <option value="connecticut">Connecticut</option>
-            <option value="delaware">Delaware</option>
-            <option value="florida">Florida</option>
-            <option value="georgia">Georgia</option>
-            <option value="hawai">Hawai</option>
-            <option value="idaho">Idaho</option>
-            <option value="illinois">Illinois</option>
-            <option value="indiana">Indiana</option>
-            <option value="iowa">Iowa</option>
-            <option value="kansas">Kansas</option>
-            <option value="kentucky">Kentucky</option>
-            <option value="louisiana">Louisiana</option>
-            <option value="maine">Maine</option>
-            <option value="mariland">Maryland</option>
-            <option value="arizona">Arizona</option>
-            <option value="massachusetts">Massachusetts</option>
-            <option value="michigan">Michigan</option>
-            <option value="minesota">Minesota</option>
-            <option value="mississipi">Mississipi</option>
-            <option value="missouri">Missouri</option>
-            <option value="montana">Montana</option>
-            <option value="nebraska">Nebraska</option>
-            <option value="nevada">nevada</option>
-            <option value="new hampshire">New Hampshire</option>
-            <option value="new jersey">New Jersey</option>
-            <option value="new mexico">New Mexico</option>
-            <option value="new york">New York</option>
-            <option value="north carolina">North Carolina</option>
-            <option value="north dakota">North Dakota</option>
-            <option value="ohio">Ohio</option>
-            <option value="oklahoma">Oklahoma</option>
-            <option value="oregon">Oregon</option>
-            <option value="pennsylvania">Pennsylvania</option>
-            <option value="rhode island">Rhode Island</option>
-            <option value="south carolina">South Carolina</option>
-            <option value="tennessee">Tennessee</option>
-            <option value="texas">Texas</option>
-            <option value="utah">Utah</option>
-            <option value="vermont">Vermont</option>
-            <option value="virginia">Virginia</option>
-            <option value="washington">Washington</option>
-            <option value="west virginia">West Virginia</option>
-            <option value="wisconsin">Wisconsin</option>
-            <option value="wyoming">Wyoming</option>
-        </select>
-
-    </ul>
-
+    <h1 class="subnav-hero-headline">COVID-19 Data Search</h1>
 </header>
-
+<div class="container">
+    <div class="col-6">
+        <div class="row">
+            <div role="button" tabindex="0" class="button">Current Location</div>
+                <br>
+                <input type="text"> <button id="searchCity">Search City</button>
+                <br>
+                <input type="text"><button id="searchCounty">Search County</button>
+                <br>
+                <label for="states">Select State</label>
+                <select name="states" id="states">
+                    <option value="alabama">Alabama</option>
+                    <option value="alaska">Alaska</option>
+                    <option value="arizona">Arizona</option>
+                    <option value="arkansas">Arkansas</option>
+                    <option value="california">California</option>
+                    <option value="colorado">Colorado</option>
+                    <option value="connecticut">Connecticut</option>
+                    <option value="delaware">Delaware</option>
+                    <option value="florida">Florida</option>
+                    <option value="georgia">Georgia</option>
+                    <option value="hawai">Hawai</option>
+                    <option value="idaho">Idaho</option>
+                    <option value="illinois">Illinois</option>
+                    <option value="indiana">Indiana</option>
+                    <option value="iowa">Iowa</option>
+                    <option value="kansas">Kansas</option>
+                    <option value="kentucky">Kentucky</option>
+                    <option value="louisiana">Louisiana</option>
+                    <option value="maine">Maine</option>
+                    <option value="mariland">Maryland</option>
+                    <option value="arizona">Arizona</option>
+                    <option value="massachusetts">Massachusetts</option>
+                    <option value="michigan">Michigan</option>
+                    <option value="minesota">Minesota</option>
+                    <option value="mississipi">Mississipi</option>
+                    <option value="missouri">Missouri</option>
+                    <option value="montana">Montana</option>
+                    <option value="nebraska">Nebraska</option>
+                    <option value="nevada">nevada</option>
+                    <option value="new hampshire">New Hampshire</option>
+                    <option value="new jersey">New Jersey</option>
+                    <option value="new mexico">New Mexico</option>
+                    <option value="new york">New York</option>
+                    <option value="north carolina">North Carolina</option>
+                    <option value="north dakota">North Dakota</option>
+                    <option value="ohio">Ohio</option>
+                    <option value="oklahoma">Oklahoma</option>
+                    <option value="oregon">Oregon</option>
+                    <option value="pennsylvania">Pennsylvania</option>
+                    <option value="rhode island">Rhode Island</option>
+                    <option value="south carolina">South Carolina</option>
+                    <option value="tennessee">Tennessee</option>
+                    <option value="texas">Texas</option>
+                    <option value="utah">Utah</option>
+                    <option value="vermont">Vermont</option>
+                    <option value="virginia">Virginia</option>
+                    <option value="washington">Washington</option>
+                    <option value="west virginia">West Virginia</option>
+                    <option value="wisconsin">Wisconsin</option>
+                    <option value="wyoming">Wyoming</option>
+                </select>
+            
+            
+        </div>
+    </div>
+</div>
 
 <script src="locationlogic.js"></script>
 <script src="script.js"></script>
