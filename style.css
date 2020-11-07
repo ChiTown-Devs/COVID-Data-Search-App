@@ -1,8 +1,10 @@
 
 .subnav-hero-section {
     text-align: center;
-    background: #1779ba;
+    background-image: url(https://www.efna.net/wp-content/uploads/2019/09/AdobeStock_153144654.jpeg);
     background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
     position: relative;
     overflow: visible;
     display: -webkit-flex;
@@ -22,6 +24,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 75px;
   }
+<<<<<<< HEAD
    
   .subnav-hero-subnav {
     float: none;
@@ -31,5 +34,18 @@
     bottom: 0;
     width: 100%;
     padding-bottom: 10px;
-  }
+=======
   
+  .container {
+   display: flex;
+   justify-content: center;
+   padding-top: 20px;
+    
+  }
+
+  #currentLocation {
+    padding: 20px 20px 20px 20px;
+    
+
+>>>>>>> fd08510514622141e0be289b28639a00e9d1a237
+  }

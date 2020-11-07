@@ -1,13 +1,9 @@
 const statesFullName = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 const statesAbbrev = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL','GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 
-
-
 $('#searchCounty').on('click', event => {
-    //let state = state input
-    let stateName = 'Illinois';
+    let stateName = $('#states').val();
     let countyName = $(event.currentTarget).prev().val();
-    // let cityName = 'Chicago'
     covidCall(stateName, countyName);
 });
 
@@ -31,14 +27,19 @@ const covidCall = (stateName, countyName) => {
 
     //AJAX call to retrieve county COVID info
     $.ajax(settings).done(function (response) {
-        //Array of counties within the state
-        let cities = response.data[0].region.cities;
-        //Loop that looks for the user's county
-        console.log(cities)
-        cities.forEach(city => {
-            if (city.name === countyName) {
-                console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
-            };
-        });
+        if (countyName) {
+            //Array of counties within the state
+            let cities = response.data[0].region.cities;
+            //Loop that looks for the user's county
+            console.log(cities)
+            cities.forEach(city => {
+                if (city.name === countyName) {
+                    console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
+                };
+            });
+        } else {
+            let state = response.data[0];
+            console.log(state);
+        };
     });
 };
