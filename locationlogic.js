@@ -19,13 +19,13 @@ $.ajax(geoSettings).done(function (response) {
 })
 })
 
-function retrieveCounty(zipCode,cityName,stateName) {
+function retrieveCounty(zipCode) {
 const countyKey = "D7K6W4KICQXNF9IXO9DY"
 const zipurl = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/" + zipCode + "?key=" + countyKey;
 
 
 
-//AJAX call to retrieve county COVID info
+
 const dataSettings = {
 url: zipurl,
 method: "GET",
@@ -33,14 +33,12 @@ method: "GET",
 
 $.ajax(dataSettings).done(function (response) {
 console.log(response)
-let countyName = response.item.CountyName;
-// let cityName = response.item.City;
+let county = (response.item.CountyName).toLowerCase();
+let countyName = county.charAt(0).toUpperCase() + county.slice(1)
+console.log(countyName)
 let stateAbbrName = response.item.State;
 let stateName = statesFullName[statesAbbrev.indexOf(stateAbbrName)]
-// for (var i = 0; i < statesAbbrev.length; i++) {
-// 	var userState = statesAbbrev.indexOf(statesAbbrev)
-// 	console.log()
-// }
+
 
 covidCall(stateName, countyName);
 })
