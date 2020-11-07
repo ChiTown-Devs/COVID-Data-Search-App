@@ -32,10 +32,16 @@ method: "GET",
 }
 
 $.ajax(dataSettings).done(function (response) {
+console.log(response)
 let countyName = response.item.CountyName;
 // let cityName = response.item.City;
-// let stateName = response.item.State;
-let stateName = 'Illinois';
+let stateAbbrName = response.item.State;
+let stateName = statesFullName[statesAbbrev.indexOf(stateAbbrName)]
+// for (var i = 0; i < statesAbbrev.length; i++) {
+// 	var userState = statesAbbrev.indexOf(statesAbbrev)
+// 	console.log()
+// }
+
 covidCall(stateName, countyName);
 })
 }
