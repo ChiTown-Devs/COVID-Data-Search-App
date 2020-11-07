@@ -1,12 +1,13 @@
 
 $("#currentLocation").on("click", function() {
 
-	//Needs a link to where it was copied from
+	//Settings copied from https://rapidapi.com/fcambus/api/telize?endpoint=5c082424e4b067d7d9560ca2
 	const geoSettings = {
 		"async": true,
 		"crossDomain": true,
 		"url": "https://telize-v1.p.rapidapi.com/geoip",
 		"method": "GET",
+		//API access authorization
 		"headers": {
 			"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
 			"x-rapidapi-host": "telize-v1.p.rapidapi.com"
@@ -24,7 +25,7 @@ function retrieveCounty(zipCode) {
 	const countyKey = "D7K6W4KICQXNF9IXO9DY"
 	const zipurl = "https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/" + zipCode + "?key=" + countyKey;
 
-	//AJAX call to retrieve county COVID info
+	//Settings copied from https://api.zip-codes.com/ZipCodesAPI.svc/1.0/GetZipCodeDetails/
 	const dataSettings = {
 	url: zipurl,
 	method: "GET"
@@ -42,4 +43,26 @@ function retrieveCounty(zipCode) {
 	});
 
 }
+$('#searchCity').on('click', event => {
+let userCity = $(event.currentTarget).prev().val();
+let stateName = $('#states').val();
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": `https://geocode-address-to-location.p.rapidapi.com/v1/geocode/autocomplete?text=${userCity} ${stateName}&countrycodes=us&type=city&lang=en&limit=1`,
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
+		"x-rapidapi-host": "geocode-address-to-location.p.rapidapi.com"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	let countyString = response.features[0].properties.county
+	let countyName = countyString.split(" ",1)[0]
+	console.log(response);
+	console.log(countyName)
+	covidCall(countyName, stateName)
+});
+})
 
