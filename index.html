@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-
+    <!--Foundation library link-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.min.js"></script>
-
 
     <title>Covid-19 Data Search</title>
 </head>
@@ -18,9 +17,13 @@
 <header class="subnav-hero-section">
     <h1 class="subnav-hero-headline">Covid-19 Data Search</h1>
     <ul class="subnav-hero-subnav">
+        <!--Button to retrieve current location of the user-->
         <button id="currentLocation">Current Location</button>
+        <!--Button so the user can retrieve information for city that he/she is planning to visit-->
         <input type="text"> <button id="searchCity">Search City</button>
+        <!--Button so the user can retrieve information for county-->
         <input type="text"><button id="searchCounty">Search County</button>
+        <!--Dropdown menu to select the state-->
         <label for="states"></label>
         <select name="states" id="states">
             <option value="alabama">Alabama</option>
