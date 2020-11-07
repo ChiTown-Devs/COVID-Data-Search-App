@@ -1,14 +1,13 @@
 $('#searchCounty').on('click', event => {
     //let state = state input
-    let state = 'Illinois';
-    let county = $(event.currentTarget).prev().val();
-
-    covidCall(state, county);
+    let stateName = 'Illinois';
+    let countyName = $(event.currentTarget).prev().val();
+    // let cityName = 'Chicago'
+    covidCall(stateName, countyName);
 });
 
-const covidCall = (state, county) => {
-    const url = `https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_name=US&q=US%20${state}`;
-
+const covidCall = (stateName, countyName) => {
+    const url = `https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_name=US&q=US%20${stateName}`;
     //Settings copied from https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics?endpoint=apiendpoint_ef9e1955-666c-43ba-9b5c-4b463ae316dc
     const settings = {
         "async": true,
@@ -24,12 +23,12 @@ const covidCall = (state, county) => {
 
     //AJAX call to retrieve county COVID info
     $.ajax(settings).done(function (response) {
-        //console.log(response);
         //Array of counties within the state
         let cities = response.data[0].region.cities;
         //Loop that looks for the user's county
+        console.log(cities)
         cities.forEach(city => {
-            if (city.name === county) {
+            if (city.name === countyName) {
                 console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
             };
         });
