@@ -12,6 +12,9 @@ $('#searchCounty').on('click', event => {
 });
 
 const covidCall = (stateName, countyName) => {
+    countyName = countyName.charAt(0).toUpperCase() + countyName.slice(1).toLowerCase();
+    console.log(countyName);
+
     const url = `https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_name=US&q=US%20${stateName}`;
     //Settings copied from https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics?endpoint=apiendpoint_ef9e1955-666c-43ba-9b5c-4b463ae316dc
     const settings = {
