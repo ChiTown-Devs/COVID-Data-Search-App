@@ -1,6 +1,5 @@
 
 $("#currentLocation").on("click", function() {
-
 	//Settings copied from https://rapidapi.com/fcambus/api/telize?endpoint=5c082424e4b067d7d9560ca2
 	const geoSettings = {
 		"async": true,
@@ -37,28 +36,30 @@ function retrieveCounty(zipCode) {
 		let stateAbbrName = response.item.State;
 		let stateName = statesFullName[statesAbbrev.indexOf(stateAbbrName)];
 
-		console.log(stateName, countyName)
-
 		covidCall(stateName, countyName);
 	});
-
-}
-$('#searchCity').on('click', event => {
-let userCity = $(event.currentTarget).prev().val();
-let stateName = $('#states').val();
-const settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://geocode-address-to-location.p.rapidapi.com/v1/geocode/search?text=Chicago&lat=40.74&limit=1&lon=-73.98&lang=en",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
-		"x-rapidapi-host": "geocode-address-to-location.p.rapidapi.com"
-	}
 };
 
-$.ajax(settings).done(function (response) {
-	console.log(response);
+$('#queryCity').on('click', () => {
+	let userCity = $('#city').val();
+	let stateName = $('#states').val();
+	const settings = {
+		"async": true,
+		"crossDomain": true,
+		"url": `https://geocode-address-to-location.p.rapidapi.com/v1/geocode/search?text=${userCity} ${stateName}&limit=1&lang=en`,
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
+			"x-rapidapi-host": "geocode-address-to-location.p.rapidapi.com"
+		}
+	};
+	if (userCity) {
+		$.ajax(settings).done(function (response) {
+			let county = response.features[0].properties.county;
+			covidCall(stateName, county);
+		});
+	} else {
+		covidCall(stateName);
+	};
 });
-})
 
