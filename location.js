@@ -43,8 +43,9 @@ function retrieveCounty(zipCode) {
 	});
 
 }
-$('#searchCity').on('click', event => {
+$('#queryCity').on('click', event => {
 let userCity = $(event.currentTarget).prev().val();
+console.log(userCity)
 let stateName = $('#states').val();
 const settings = {
 	"async": true,
@@ -59,6 +60,8 @@ const settings = {
 
 $.ajax(settings).done(function (response) {
 	console.log(response);
+	// let userCity = response.
+	covidCall(stateName, userCity);
 });
 })
 
