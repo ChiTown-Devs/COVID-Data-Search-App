@@ -61,5 +61,3 @@ $('#queryCity').on('click', () => {
 	} else {
 		covidCall(stateName);
 	};
-});
-
