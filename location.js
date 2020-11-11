@@ -62,6 +62,7 @@ $('#queryCity').on('click', () => {
 	} else {
 		covidCall(stateName);
 	};
+
 });
 
 //Function for storing city locally
@@ -103,3 +104,4 @@ const renderStoredCities = () => {
 };
 
 renderStoredCities();
+

@@ -1,6 +1,7 @@
 const statesFullName = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 const statesAbbrev = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL','GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 
+
 const covidCall = (stateName, countyName) => {
     let county = '';
     if (countyName) {
@@ -11,6 +12,7 @@ const covidCall = (stateName, countyName) => {
         };
         county = countyArray.join(' ');
     };
+
 
     const url = `https://covid-19-statistics.p.rapidapi.com/reports?iso=USA&region_name=US&q=US%20${stateName}`;
     //Settings copied from https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics?endpoint=apiendpoint_ef9e1955-666c-43ba-9b5c-4b463ae316dc
@@ -28,6 +30,7 @@ const covidCall = (stateName, countyName) => {
 
     //AJAX call to retrieve county COVID info
     $.ajax(settings).done(function (response) {
+
         if (county) {
             //Array of counties within the state
             let cities = response.data[0].region.cities;
@@ -35,6 +38,7 @@ const covidCall = (stateName, countyName) => {
             //console.log(cities)
             cities.forEach(city => {
                 if (city.name === county) {
+
                     console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
                 };
             });
