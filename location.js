@@ -92,7 +92,7 @@ const renderStoredCities = () => {
             cityName = cities[i].city;
         };
         let stateName = cities[i].state;
-        let newButton = $('<button>');
+        let newButton = $('<a class="button city-button"></a>');
         if (cityName) {
 			newButton.attr('data-city', cityName);
 			cityName += ', ';
