@@ -43,6 +43,7 @@ function retrieveCounty(zipCode) {
 $('#queryCity').on('click', () => {
 	let userCity = $('#city').val();
 	let stateName = $('#states').val();
+	storeCity(userCity, stateName);
 	const settings = {
 		"async": true,
 		"crossDomain": true,
@@ -61,3 +62,46 @@ $('#queryCity').on('click', () => {
 	} else {
 		covidCall(stateName);
 	};
+
+});
+
+//Function for storing city locally
+const storeCity = (city, state) => {
+    //Retrieves previously stored cities
+    let storedCities = JSON.parse(localStorage.getItem('cities'));
+    //If the storage was empty then an array is created with the first searched city
+    if (storedCities) {
+        //If the city is already in storage it is not pushed
+        if (!storedCities.includes({'state': state,
+        'city': city})) {
+            storedCities.push({'state': state, 'city': city});
+        };
+    } else {
+        storedCities = [{'state': state, 'city': city}];
+    };
+    //The stored array is updated
+    localStorage.setItem('cities', JSON.stringify(storedCities));
+};
+
+const renderStoredCities = () => {
+    let cities = JSON.parse(localStorage.getItem('cities'));
+    console.log(cities);
+    for (let i = 0; cities.length > 5 ? i < 5 : i < cities.length; i++) {
+        let cityName = '';
+        if (cities[i].hasOwnProperty('city')) {
+            cityName = cities[i].city;
+        };
+        let stateName = cities[i].state;
+        let newButton = $('<button>');
+        if (cityName) {
+			newButton.attr('data-city', cityName);
+			cityName += ', ';
+        };
+        newButton.attr('data-state', stateName);
+        newButton.text(`${cityName}${stateName}`);
+        $('.button-container').append(newButton);
+    };
+};
+
+renderStoredCities();
+
