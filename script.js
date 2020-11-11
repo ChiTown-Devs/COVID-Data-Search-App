@@ -30,7 +30,6 @@ const covidCall = (stateName, countyName) => {
 
     //AJAX call to retrieve county COVID info
     $.ajax(settings).done(function (response) {
-
         if (county) {
             //Array of counties within the state
             let cities = response.data[0].region.cities;
@@ -38,8 +37,14 @@ const covidCall = (stateName, countyName) => {
             //console.log(cities)
             cities.forEach(city => {
                 if (city.name === county) {
-
-                    console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff);
+                    let cityFips = String(city.fips).split()
+                    console.log(cityFips.length)
+                    if (cityFips.length < 5) {
+                        cityFips.splice(0,0,"0")
+                    }
+                    let joinFips = cityFips.join("")
+                    console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff,joinFips);
+                    // window.open(`https://bao.arcgis.com/covid-19/jhu/county/${cityFips}.html`, 'name'); 
                 };
             });
         } else {
