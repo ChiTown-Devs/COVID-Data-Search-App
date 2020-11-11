@@ -45,12 +45,20 @@
     
   }
 
-  .currentLocation {
-    padding-right: 20px;
+  .or {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 500;
+    margin: 1.2rem 0 1.6rem 0;
   }
 
   .button {
     text-align: center;
+  }
+
+  .city-button {
+    margin-right: 1rem;
+    background-color: #333;
   }
 
   .covidMap {
