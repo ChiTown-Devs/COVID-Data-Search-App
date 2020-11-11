@@ -49,7 +49,7 @@ let stateName = $('#states').val();
 const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": `https://geocode-address-to-location.p.rapidapi.com/v1/geocode/autocomplete?text=${userCity} ${stateName}&countrycodes=us&type=city&lang=en&limit=1`,
+	"url": "https://geocode-address-to-location.p.rapidapi.com/v1/geocode/search?text=Chicago&lat=40.74&limit=1&lon=-73.98&lang=en",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
@@ -58,11 +58,7 @@ const settings = {
 };
 
 $.ajax(settings).done(function (response) {
-	let countyString = response.features[0].properties.county
-	let countyName = countyString.split(" ",1)[0]
 	console.log(response);
-	console.log(countyName)
-	covidCall(countyName, stateName)
 });
 })
 
