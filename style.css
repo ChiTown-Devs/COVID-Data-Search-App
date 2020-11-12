@@ -1,3 +1,6 @@
+body {
+  padding-bottom: 2rem;
+}
 
 .subnav-hero-section {
     text-align: center;
@@ -18,18 +21,26 @@
             justify-content: center;
     height: 300px;
   }
+
+  .opaque-box {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .subnav-hero-headline {
+    z-index: 10;
+  }
   
   .subnav-hero-section .subnav-hero-headline { 
     color: #fefefe;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 75px;
   }
-  
-  .container {
-   display: flex;
-   justify-content: center;
-   padding-top: 20px;
-    
+
+  .grid-container {
+    margin-top: 2rem;
   }
 
   #currentLocation {
@@ -37,12 +48,20 @@
     
   }
 
-  .currentLocation {
-    padding-right: 20px;
+  .or {
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 500;
+    margin: 1.2rem 0 1.6rem 0;
   }
 
   .button {
     text-align: center;
+  }
+
+  .city-button {
+    margin-right: 1rem;
+    background-color: #333;
   }
 
   .covidMap {
@@ -50,4 +69,6 @@
     justify-content: center;
   }
 
-
+  .twitter-container {
+    padding-right: 1rem;
+  }
