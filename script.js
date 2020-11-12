@@ -1,10 +1,12 @@
+//Arrays containing full names, abbreviations, and twitter handles for all 50 states and DC
 const statesFullName = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
 const statesAbbrev = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL','GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 const statesTwitter = ['ALPublicHealth', 'Alaska_DHSS', 'AZDHS', 'ADHPIO', 'CAPublicHealth', 'CDPHE', 'CTDPH', 'Delaware_DHSS', '_DCHealth', 'HealthyFla', 'GaDPH', 'HIgov_Health', 'IDHW', 'IDPH', 'StateHealthIN', 'IAPublicHealth', 'KDHE', 'KYHealthAlerts', 'LADeptHealth', 'MEPublicHealth', 'MDHealthDept', 'MassDPH', 'MichiganHHS', 'mnhealth', 'msdh', 'HealthyLivingMo', 'DPHHSMT', 'NEDHHS', 'DhhsNevada', 'NHPubHealth', 'NJDeptofHealth', 'NMDOH', 'nycHealthy', 'NCDHHS', 'NDDOH', 'OHdeptofhealth', 'HealthyOklahoma', 'OHAOregon', 'PAHealthDept', 'RIHEALTH', 'scdhec', 'SDDOH', 'TNDeptofHealth', 'TexasDSHS', 'UtahDepOfHealth', 'healthvermont', 'VDHgov', 'WADeptHealth', 'WV_DHHR', 'DHSWI', 'health_wyoming'];
 
-
+//Function to 'GET' COVID data
 const covidCall = (stateName, countyName) => {
     let county = '';
+    //If there is a county argument, the name is formatted to remove the word 'county' and get properly cased.
     if (countyName) {
         let countyArray = countyName.toLowerCase().split(' ');
         countyArray.includes('county') ? countyArray.pop() : countyArray;
@@ -35,7 +37,6 @@ const covidCall = (stateName, countyName) => {
             //Array of counties within the state
             let cities = response.data[0].region.cities;
             //Loop that looks for the user's county
-            //console.log(cities)
             cities.forEach(city => {
                 if (city.name === county) {
                     let cityFips = String(city.fips).split()
