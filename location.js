@@ -40,11 +40,7 @@ function retrieveCounty(zipCode) {
 	});
 };
 
-$('#queryCity').on('click', () => {
-	let userCity = $('#city').val();
-	let stateName = $('#states').val();
-	storeCity(userCity, stateName);
-	renderStoredCities();
+const cityCall = (userCity, stateName) => {
 	const settings = {
 		"async": true,
 		"crossDomain": true,
@@ -63,7 +59,14 @@ $('#queryCity').on('click', () => {
 	} else {
 		covidCall(stateName);
 	};
+};
 
+$('#queryCity').on('click', () => {
+	let userCity = $('#city').val();
+	let stateName = $('#states').val();
+	storeCity(userCity, stateName);
+	renderStoredCities();
+	cityCall(userCity, stateName);
 });
 
 //Function for storing city locally
@@ -84,16 +87,18 @@ const storeCity = (city, state) => {
     localStorage.setItem('cities', JSON.stringify(storedCities));
 };
 
+//Renders the five most-recent searches as buttons
 const renderStoredCities = () => {
 	$('.button-container').html('');
     let cities = JSON.parse(localStorage.getItem('cities'));
     console.log(cities);
     for (let i = 0; cities.length > 5 ? i < 5 : i < cities.length; i++) {
-        let cityName = '';
-        if (cities[i].hasOwnProperty('city')) {
-            cityName = cities[i].city;
+		let cityName = '';
+		let city = cities.length - (i + 1);
+        if (cities[city].hasOwnProperty('city')) {
+            cityName = cities[city].city;
         };
-        let stateName = cities[i].state;
+        let stateName = cities[city].state;
         let newButton = $('<a class="button city-button"></a>');
         if (cityName) {
 			newButton.attr('data-city', cityName);
@@ -101,7 +106,13 @@ const renderStoredCities = () => {
         };
         newButton.attr('data-state', stateName);
         newButton.text(`${cityName}${stateName}`);
-        $('.button-container').append(newButton);
+		$('.button-container').append(newButton);
+		
+		newButton.on('click', event => {
+			let buttonCity = $(event.currentTarget).attr('data-city');
+			let buttonState = $(event.currentTarget).attr('data-state');
+			cityCall(buttonCity, buttonState);
+		})
     };
 };
 
