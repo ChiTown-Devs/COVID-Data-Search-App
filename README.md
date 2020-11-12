@@ -8,11 +8,11 @@ Covid-19 Data Search is an application created with the goal of supporting users
 
 ## BUILT WITH
 
-  *HTML  
-  *CSS  
-  *JAVASCRIPT  
-  *BOOTSTRAP  [https://getbootstrap.com/]  
-  *FOUNDATION  [https://get.foundation/]
+  HTML  
+  CSS  
+  JAVASCRIPT  
+  JQUERY  [https://jquery.com/]
+  FOUNDATION  [https://get.foundation/]
 
 ## SCREENSHOT
 
