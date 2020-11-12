@@ -2,19 +2,33 @@
 
 ## DESCRIPTION
 
+Covid-19 Data Search is an application created with the goal to give support to any user travelling inside the United States of America. The main goal is provide with accurate and in real time information to the user.
 
 ## INSTALLATION
 
+## BUILT WITH
+
+  *HTML  
+  *CSS  
+  *JAVASCRIPT  
+  *BOOTSTRAP  https://getbootstrap.com/  
+  *FOUNDATION  https://get.foundation/
 
 ## SCREENSHOT
 
 !(Application Screenshot)[]
 
 ## LINK TO DEPLOYED APPLICATION
-
+ 
 !(Application Link)[https://chitown-devs.github.io/COVID-Data-Search-App/]
 
 ## USAGE
+
+The main commitment while we were creating the application was make it simple and accesible thinking first in our users. To proper use the app you can follow this simple steps:  
+
+1. Use the button "current-location to know the cases around your area.  
+2. Use the search-city button to know the cases to your destination.  
+3. You also can use the tweet section to get the latest news related to the location
 
 # LICENSE
 
