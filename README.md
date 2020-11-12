@@ -11,7 +11,7 @@ Covid-19 Data Search is an application created with the goal of supporting users
   HTML  
   CSS  
   JAVASCRIPT  
-  JQUERY  [https://jquery.com/]
+  JQUERY  [https://jquery.com/]  
   FOUNDATION  [https://get.foundation/]
 
 ## SCREENSHOT
