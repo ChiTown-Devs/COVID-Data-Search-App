@@ -44,6 +44,7 @@ $('#queryCity').on('click', () => {
 	let userCity = $('#city').val();
 	let stateName = $('#states').val();
 	storeCity(userCity, stateName);
+	renderStoredCities();
 	const settings = {
 		"async": true,
 		"crossDomain": true,
@@ -84,6 +85,7 @@ const storeCity = (city, state) => {
 };
 
 const renderStoredCities = () => {
+	$('.button-container').html('');
     let cities = JSON.parse(localStorage.getItem('cities'));
     console.log(cities);
     for (let i = 0; cities.length > 5 ? i < 5 : i < cities.length; i++) {
