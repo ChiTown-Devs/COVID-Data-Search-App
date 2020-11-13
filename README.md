@@ -16,6 +16,9 @@ Covid-19 Data Search is an application created with the goal of supporting users
 
 !(Application Screenshot)[]
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/70552625/99113949-aa376f00-25b5-11eb-93ba-6f1d829f963e.gif)
+
+
 ## LINK TO DEPLOYED APPLICATION
 
 [!(Application Link):[https://chitown-devs.github.io/COVID-Data-Search-App/]
