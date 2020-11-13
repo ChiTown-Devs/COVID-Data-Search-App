@@ -1,4 +1,4 @@
-# COVID-Data-Search-App
+# COVID-19-Data-Search-App
 
 ## DESCRIPTION
 
