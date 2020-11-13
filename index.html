@@ -44,13 +44,12 @@
     </header>
     <div class="grid-container">
         <div class='grid-x'>
-            <div class="grid-y large-6 small-12">
+            <div class="grid-y medium-6 small-12">
                 <!--Button to retrieve current location of the user-->
                 <a class="button large" id="currentLocation">Current Location</a>
                 <h1 class='or'>OR</h1>
                 <!--Button so the user can retrieve information for city that he/she is planning to visit-->
                 <input type="text" placeholder="Search City" id='city'>
-
                 <!--Dropdown menu to select the state-->
                 <label for="states"></label>
                 <select name="states" id="states">
@@ -106,26 +105,19 @@
                     <option value="Wisconsin">Wisconsin</option>
                     <option value="Wyoming">Wyoming</option>
                 </select>
-
                 <a class="button" id="queryCity">search</a>
                 <div class='button-container'></div>
             </div>
-            <div class='grid-y large-9 small-12'>
-                <div class='grid-x'>
-                    <div class='grid-y large-6 small-12'></div>
-                    <div class='twitter-container grid-y large-4 small-12'>
-                        <a class="twitter-timeline" data-lang="en" data-width="300" data-height="500" data-theme="dark"
-                            href="https://twitter.com/CDCgov?ref_src=twsrc%5Etfw">Tweets by CDCgov</a>
-                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
+            <div class='twitter-container grid-y medium-6 small-12'>
+                <a class="twitter-timeline" data-lang="en" data-width="300" data-height="500" data-theme="dark" href="https://twitter.com/CDCgov?ref_src=twsrc%5Etfw">Tweets by CDCgov</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+        <div class='grid-x'>
+            <div class='grid-y small-12 iframecontainer'>
             </div>
         </div>
     </div>
-    <div class="grid-y large-6 small-12 hide"></div>
-    <div class="covid-info large-4 small-12"></div>
     <script src="location.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
