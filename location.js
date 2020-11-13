@@ -1,5 +1,6 @@
 
 $("#currentLocation").on("click", function() {
+	$('#responseDiv').html('')
 	//Settings copied from https://rapidapi.com/fcambus/api/telize?endpoint=5c082424e4b067d7d9560ca2
 	const geoSettings = {
 		"async": true,
@@ -62,6 +63,7 @@ const cityCall = (userCity, stateName) => {
 };
 
 $('#queryCity').on('click', () => {
+	$('#responseDiv').html('')
 	let userCity = $('#city').val();
 	let stateName = $('#states').val();
 	storeCity(userCity, stateName);
@@ -91,7 +93,6 @@ const storeCity = (city, state) => {
 const renderStoredCities = () => {
 	$('.button-container').html('');
     let cities = JSON.parse(localStorage.getItem('cities'));
-    console.log(cities);
     for (let i = 0; cities.length > 5 ? i < 5 : i < cities.length; i++) {
 		let cityName = '';
 		let city = cities.length - (i + 1);
