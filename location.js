@@ -1,5 +1,6 @@
 //Function to retrieve geolocation info
 $("#currentLocation").on("click", function() {
+	$('#responseDiv').html('')
 	//Settings copied from https://rapidapi.com/fcambus/api/telize?endpoint=5c082424e4b067d7d9560ca2
 	const geoSettings = {
 		"async": true,
@@ -70,7 +71,7 @@ const cityCall = (userCity, stateName) => {
 
 //Event listener for user input
 $('#queryCity').on('click', () => {
-	//Variables for input field values
+	$('#responseDiv').html('')
 	let userCity = $('#city').val();
 	let stateName = $('#states').val();
 
@@ -104,9 +105,7 @@ const storeCity = (city, state) => {
 const renderStoredCities = () => {
 	//Button container div is emptied
 	$('.button-container').html('');
-	//Local storage is retrieved
-	let cities = JSON.parse(localStorage.getItem('cities'));
-	//Buttons are created for the five most recent searches
+    let cities = JSON.parse(localStorage.getItem('cities'));
     for (let i = 0; cities.length > 5 ? i < 5 : i < cities.length; i++) {
 		let cityName = '';
 		//Used to move backwards through the array

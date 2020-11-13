@@ -39,18 +39,17 @@ const covidCall = (stateName, countyName) => {
             //Loop that looks for the user's county
             cities.forEach(city => {
                 if (city.name === county) {
-                    let cityFips = String(city.fips).split()
+                    let cityFips = String(city.fips).split('')
                     if (cityFips.length < 5) {
                         cityFips.splice(0,0,"0")
                     }
                     let joinFips = cityFips.join("")
-                    console.log(city.name, city.confirmed, city.confirmed_diff, city.deaths, city.deaths_diff,joinFips);
-                    // window.open(`https://bao.arcgis.com/covid-19/jhu/county/${cityFips}.html`, 'name'); 
+                    $('.iframecontainer').html('')
+                    $('.iframecontainer').append(`<iframe src='https://bao.arcgis.com/covid-19/jhu/county/${joinFips}.html'></iframe>`)
                 };
             });
         } else {
             let state = response.data[0];
-            console.log(state);
         };
 
         //Renders twitter feed of the state's DOH
