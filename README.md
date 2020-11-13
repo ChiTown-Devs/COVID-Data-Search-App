@@ -1,10 +1,8 @@
-# COVID-Data-Search-App
+# COVID-19-Data-Search-App
 
 ## DESCRIPTION
 
 Covid-19 Data Search is an application created with the goal of supporting users travelling inside the United States of America. The application provides users with accurate and real-time information about the status of the virus in a given location.
-
-## INSTALLATION
 
 ## BUILT WITH
 
