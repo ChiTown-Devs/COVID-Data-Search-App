@@ -1,22 +1,17 @@
+
 //Function to retrieve geolocation info
 $("#currentLocation").on("click", function() {
 	$('#responseDiv').html('')
-	//Settings copied from https://rapidapi.com/fcambus/api/telize?endpoint=5c082424e4b067d7d9560ca2
 	const geoSettings = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://telize-v1.p.rapidapi.com/geoip",
-		"method": "GET",
-		//API access authorization
-		"headers": {
-			"x-rapidapi-key": "79f7ca8118msh020414b1e09c65cp1220e3jsn80b7757a036d",
-			"x-rapidapi-host": "telize-v1.p.rapidapi.com"
-		}
+		"url": `https://api.ipgeolocation.io/ipgeo?apiKey=c99b530d7da74d98be5d504121226677`,
+		"method": "GET"
 	};
 
 	//AJAX call to retrieve location
 	$.ajax(geoSettings).done(function (response) {
-		let zipCode = response.postal_code;
+		let zipCode = response.zipcode;
 		
 		//Calls zip code API function
 		retrieveCounty(zipCode)
